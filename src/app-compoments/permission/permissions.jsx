@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from "react";
+import React, { Fragment } from "react";
 import ContentHeader from "../../components/contentHead/contentHeader";
 
 import { Table, Input, FormGroup, Label } from "reactstrap";
 import { Edit, Trash2 } from 'react-feather';
-import ButtonsDropdown from '../common/action_button';
-import { array } from "yup";
+// import ButtonsDropdown from '../common/action_button';
+import PermissionNew from './permissionNew';
 
 
 export default class Permission extends React.Component {
@@ -13,7 +13,8 @@ export default class Permission extends React.Component {
         <Fragment>
         <ContentHeader>Permissions </ContentHeader>
        
-<ButtonsDropdown list={[{name: "new", link: 'new_role'}]}/>
+{/* <ButtonsDropdown list={[{name: "new", link: 'new_role'}]}/> */}
+<PermissionNew/>
 
          <Table responsive>
             <thead>

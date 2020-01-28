@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, {  Fragment } from "react";
 import ContentHeader from "../../components/contentHead/contentHeader";
 
 import { Table, Input, FormGroup, Label } from "reactstrap";

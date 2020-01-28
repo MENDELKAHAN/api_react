@@ -22,7 +22,7 @@ import {
    Check,
    Bell,
    User,
-   AlertTriangle,
+
    Inbox,
    Phone,
    Calendar,
@@ -31,12 +31,10 @@ import {
    LogOut
 } from "react-feather";
 import NavbarSearch from "../../../components/search/Search";
-import ReactCountryFlag from "react-country-flag";
 
 import userImage from "../../../assets/img/portrait/small/avatar-s-1.png";
 import userImage2 from "../../../assets/img/portrait/small/avatar-s-2.png";
-import userImage3 from "../../../assets/img/portrait/small/avatar-s-3.png";
-import userImage4 from "../../../assets/img/portrait/small/avatar-s-4.png";
+
 
 class ThemeNavbar extends Component {
    handleClick = e => {
@@ -81,25 +79,7 @@ class ThemeNavbar extends Component {
                <div className="navbar-container">
                   <Collapse isOpen={this.state.isOpen} navbar>
                      <Nav className="ml-auto float-right" navbar>
-                        <UncontrolledDropdown nav inNavbar className="pr-1">
-                           <DropdownToggle nav>
-                              <ReactCountryFlag code="us" svg /> EN
-                           </DropdownToggle>
-                           <DropdownMenu right>
-                              <DropdownItem>
-                                 <ReactCountryFlag code="us" svg /> English
-                              </DropdownItem>
-                              <DropdownItem>
-                                 <ReactCountryFlag code="fr" svg /> France
-                              </DropdownItem>
-                              <DropdownItem>
-                                 <ReactCountryFlag code="es" svg /> Spanish
-                              </DropdownItem>
-                              <DropdownItem>
-                                 <ReactCountryFlag code="cn" svg /> Chinese
-                              </DropdownItem>
-                           </DropdownMenu>
-                        </UncontrolledDropdown>
+                       
                         <NavItem className="pr-1">
                            <Link to="/email/" className="nav-link">
                               <Mail size={20} color="#333" />
@@ -152,43 +132,11 @@ class ThemeNavbar extends Component {
                                        </span>
                                     </Media>
                                  </Media>
-                                 <Media className="px-3 pt-2 pb-2 media  border-bottom-grey border-bottom-lighten-3">
-                                    <Media left middle href="#" className="mr-2">
-                                       <span className="bg-warning rounded-circle width-35 height-35 d-block">
-                                          <AlertTriangle size={30} className="p-1 white margin-left-3" />
-                                       </span>
-                                    </Media>
-                                    <Media body>
-                                       <h6 className="mb-1 text-bold-500 font-small-3">
-                                          <span className="warning">Warning notificatoin</span>
-                                          <span className="text-bold-300 font-small-2 text-muted float-right">
-                                             11:00 A.M
-                                          </span>
-                                       </h6>
-                                       <p className="font-small-3 line-height-2">
-                                          Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor.
-                                       </p>
-                                    </Media>
-                                 </Media>
-                                 <Media className="px-3 pt-2 pb-2 media  border-bottom-grey border-bottom-lighten-3">
-                                    <Media left top href="#">
-                                       <Media
-                                          object
-                                          src={userImage3}
-                                          alt="Generic placeholder image"
-                                          className="rounded-circle width-35"
-                                       />
-                                    </Media>
-                                    <Media body>
-                                       <h6 className="mb-0 text-bold-500 font-small-3">
-                                          John started task
-                                          <span className="text-bold-300 font-small-2 text-muted float-right">5:00 P.M</span>
-                                       </h6>
-                                       <span className="font-small-3 line-height-2">
-                                          Sit amet consectetur adipisicing elit sed.
-                                       </span>
-                                    </Media>
-                                 </Media>
+                               
+                                    
+                                
+                               
+                                   
                                  <Media className="px-3 pt-2 pb-2 media  border-bottom-grey border-bottom-lighten-3">
                                     <Media left middle href="#" className="mr-2">
                                        <span className="bg-danger rounded-circle width-35 height-35 d-block">
@@ -207,25 +155,7 @@ class ThemeNavbar extends Component {
                                        </span>
                                     </Media>
                                  </Media>
-                                 <Media className="px-3 pt-2 pb-2 media  border-bottom-grey border-bottom-lighten-3">
-                                    <Media left top href="#">
-                                       <Media
-                                          object
-                                          src={userImage4}
-                                          alt="Generic placeholder image"
-                                          className="rounded-circle width-35"
-                                       />
-                                    </Media>
-                                    <Media body>
-                                       <h6 className="mb-0 text-bold-500 font-small-3">
-                                          Lisa started task
-                                          <span className="text-bold-300 font-small-2 text-muted float-right">6:00 P.M</span>
-                                       </h6>
-                                       <span className="font-small-3 line-height-2">
-                                          Sit amet consectetur adipisicing elit sed.
-                                       </span>
-                                    </Media>
-                                 </Media>
+                                 
                               </PerfectScrollbar>
                               <div className="p-1 text-center border-top-grey border-top-lighten-2">
                                  <Link to="/">View All</Link>

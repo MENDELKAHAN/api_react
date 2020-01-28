@@ -69,7 +69,7 @@ const LazyChart = lazy(() => import("../views/charts/chartjs/chart"));
 const LazyGoogle = lazy(() => import("../views/maps/google"));
 const LazyHorizontalTimeline = lazy(() => import("../views/pages/horizontalTimeline"));
 const LazyVerticalTimeline = lazy(() => import("../views/pages/verticalTimeline"));
-const LazyUserProfile = lazy(() => import("../views/pages/userProfile"));
+// const LazyUserProfile = lazy(() => import("../views/pages/userProfile"));
 const LazyInvoice = lazy(() => import("../views/pages/invoice"));
 const LazyGallery = lazy(() => import("../views/pages/gallery"));
 const LazyFAQ = lazy(() => import("../views/pages/faq"));
@@ -88,6 +88,9 @@ const LazyLockScreen = lazy(() => import("../views/pages/lockScreen"));
 
 const LazyPermission = lazy(() => import("../app-compoments/permission/permissions"));
 const LazyRole = lazy(() => import("../app-compoments/role/roles"));
+const LazyUser = lazy(() => import("../app-compoments/user/users"));
+const LazyUserProfile = lazy(() => import("../app-compoments/user/user-profile"));
+
 // Error Pages
 const LazyErrorPage = lazy(() => import("../views/pages/error"));
 
@@ -118,6 +121,26 @@ class Router extends Component {
                      </Suspense>
                   )}
                /> 
+
+               <MainLayoutRoutes
+                  exact
+                  path="/users"
+                  render={matchprops => (
+                     <Suspense fallback={<Spinner />}>
+                        <LazyUser {...matchprops} />
+                     </Suspense>
+                  )}
+               />
+
+               <MainLayoutRoutes
+                  exact
+                  path="/user-profile"
+                  render={matchprops => (
+                     <Suspense fallback={<Spinner />}>
+                        <LazyUserProfile {...matchprops} />
+                     </Suspense>
+                  )}
+               />
 
 
                <MainLayoutRoutes

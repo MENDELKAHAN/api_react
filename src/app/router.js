@@ -102,6 +102,17 @@ class Router extends Component {
             <Switch>
                {/* Dashboard Views */}
 
+
+               <FullPageLayout
+                  exact
+                  path="/login"
+                  render={matchprops => (
+                     <Suspense fallback={<Spinner />}>
+                        <LazyLogin {...matchprops} />
+                     </Suspense>
+                  )}
+               />
+
                <MainLayoutRoutes
                   exact
                   path="/permissions"
@@ -704,15 +715,7 @@ class Router extends Component {
                      </Suspense>
                   )}
                />
-               <FullPageLayout
-                  exact
-                  path="/login"
-                  render={matchprops => (
-                     <Suspense fallback={<Spinner />}>
-                        <LazyLogin {...matchprops} />
-                     </Suspense>
-                  )}
-               />
+              
                <FullPageLayout
                   exact
                   path="/pages/register"

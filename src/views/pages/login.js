@@ -17,14 +17,39 @@ import {
 
 
 class Login extends Component {
+   constructor() {
+      super();
+      // this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
    state = {
       isChecked: true
    };
+
    handleChecked = e => {
       this.setState(prevState => ({
          isChecked: !prevState.isChecked
       }));
    };
+
+  
+
+ submitForm(event) {
+   event.preventDefault();
+   const data = new FormData(event.target);
+   
+   fetch('http://127.0.0.1:8000/api/auth/login', {
+     method: 'POST',
+     body: data,
+     headers:{
+        'Accept': 'application/json', 
+        'Content-Type' : 'application/json'
+     }
+   });
+ }
+
+
+
 
    render() {
       return (
@@ -34,7 +59,7 @@ class Login extends Component {
                   <Card className="gradient-indigo-purple text-center width-400">
                      <CardBody>
                         <h2 className="white py-4">Login</h2>
-                        <Form className="pt-2">
+                        <Form className="pt-2" onSubmit={this.submitForm}>
                            <FormGroup>
                               <Col md="12">
                                  <Input
@@ -82,11 +107,11 @@ class Login extends Component {
                            <FormGroup>
                               <Col md="12">
                                  <Button type="submit" color="danger" block className="btn-pink btn-raised">
-                                    Submit
+                                    Login
                                  </Button>
-                                 <Button type="button" color="secondary" block className="btn-raised">
+                                 {/* <Button type="button" color="secondary" block className="btn-raised">
                                     Cancel
-                                 </Button>
+                                 </Button> */}
                               </Col>
                            </FormGroup>
                         </Form>
@@ -98,9 +123,7 @@ class Login extends Component {
                            </NavLink>
                         </div>
                         <div className="float-right">
-                           <NavLink to="/pages/register" className="text-white">
-                              Register Now
-                           </NavLink>
+                           
                         </div>
                      </CardFooter>
                   </Card>

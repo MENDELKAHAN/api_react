@@ -84,7 +84,10 @@ const LazyLogin = lazy(() => import("../views/pages/login"));
 const LazyRegister = lazy(() => import("../views/pages/register"));
 const LazyMaintainance = lazy(() => import("../views/pages/maintainance"));
 const LazyLockScreen = lazy(() => import("../views/pages/lockScreen"));
+
+
 const LazyPermission = lazy(() => import("../app-compoments/permission/permissions"));
+const LazyRole = lazy(() => import("../app-compoments/role/roles"));
 // Error Pages
 const LazyErrorPage = lazy(() => import("../views/pages/error"));
 
@@ -106,6 +109,15 @@ class Router extends Component {
                   )}
                />
 
+               <MainLayoutRoutes
+                  exact
+                  path="/roles"
+                  render={matchprops => (
+                     <Suspense fallback={<Spinner />}>
+                        <LazyRole {...matchprops} />
+                     </Suspense>
+                  )}
+               /> 
 
 
                <MainLayoutRoutes

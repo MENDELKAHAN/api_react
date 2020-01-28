@@ -32,6 +32,8 @@ class SideMenuContent extends Component {
    render() {
       return (
          <SideMenu className="sidebar-content" toggleSidebarMenu={this.props.toggleSidebarMenu}>
+          
+          
             <SideMenu.MenuMultiItems
                name="Dashboard"
                Icon={<Home size={18} />}
@@ -47,7 +49,35 @@ class SideMenuContent extends Component {
                <NavLink to="/sales-dashboard" exact className="item" activeclassname="active">
                   <span className="menu-item-text">Sales</span>
                </NavLink>
+
+
             </SideMenu.MenuMultiItems>
+
+
+
+            <SideMenu.MenuMultiItems
+               name="Users"
+               Icon={<Home size={18} />}
+               ArrowRight={<ChevronRight size={16} />}
+               collapsedSidebar={this.props.collapsedSidebar}
+            >
+               <NavLink to="/users" exact className="item" activeclassname="active">
+                  <span className="menu-item-text">Users</span>
+               </NavLink>
+               <NavLink to="/roles" exact className="item" activeclassname="active">
+                  <span className="menu-item-text">Roles</span>
+               </NavLink>
+               <NavLink to="/permissions" exact className="item" activeclassname="active">
+                  <span className="menu-item-text">Permissions</span>
+               </NavLink>
+
+
+            </SideMenu.MenuMultiItems>
+
+
+
+
+
             <SideMenu.MenuSingleItem badgeColor="danger" badgeText="6">
                <NavLink to="/email" activeclassname="active">
                   <i className="menu-icon">

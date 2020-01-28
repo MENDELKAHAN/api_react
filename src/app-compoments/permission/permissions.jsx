@@ -3,6 +3,8 @@ import ContentHeader from "../../components/contentHead/contentHeader";
 
 import { Table, Input, FormGroup, Label } from "reactstrap";
 import { Edit, Trash2 } from 'react-feather';
+import ButtonsDropdown from '../common/action_button';
+import { array } from "yup";
 
 
 export default class Permission extends React.Component {
@@ -11,6 +13,7 @@ export default class Permission extends React.Component {
         <Fragment>
         <ContentHeader>Permissions </ContentHeader>
        
+<ButtonsDropdown list={[{name: "new", link: 'new_role'}]}/>
 
          <Table responsive>
             <thead>
@@ -22,10 +25,10 @@ export default class Permission extends React.Component {
                         </Label>
                      </FormGroup>
                   </th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Email</th>
-                  <th>Actions</th>
+                  <th>Name</th>
+                  <th>Slug</th>
+                  <th>Action</th>
+                
                </tr>
             </thead>
             <tbody>
@@ -38,67 +41,15 @@ export default class Permission extends React.Component {
                         </Label>
                      </FormGroup>
                   </th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>markotto@mdo.com</td>
+                  <td>Dev</td>
+                  <td>Dev</td>
+                 
                   <td><Edit size={18} className="mr-2" /> <Trash2 size={18} color="#FF586B"/></td>
                </tr>
-               <tr>
-                  <th scope="row">
-                     {" "}
-                     <FormGroup check>
-                        <Label check>
-                           <Input type="checkbox" id="checkbox3" /> 2
-                        </Label>
-                     </FormGroup>
-                  </th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>jacob@fat.com</td>
-                  <td><Edit size={18} className="mr-2" /> <Trash2 size={18} color="#FF586B"/></td>
-               </tr>
-               <tr>
-                  <th scope="row">
-                     {" "}
-                     <FormGroup check>
-                        <Label check>
-                           <Input type="checkbox" id="checkbox4" /> 3
-                        </Label>
-                     </FormGroup>
-                  </th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>larry@twitte.comr</td>
-                  <td><Edit size={18} className="mr-2" /> <Trash2 size={18} color="#FF586B"/></td>
-               </tr>
-               <tr>
-                  <th scope="row">
-                     {" "}
-                     <FormGroup check>
-                        <Label check>
-                           <Input type="checkbox" id="checkbox5" /> 4
-                        </Label>
-                     </FormGroup>
-                  </th>
-                  <td>John</td>
-                  <td>Doe</td>
-                  <td>john@example.com</td>
-                  <td><Edit size={18} className="mr-2" /> <Trash2 size={18} color="#FF586B"/></td>
-               </tr>
-               <tr>
-                  <th scope="row">
-                     {" "}
-                     <FormGroup check>
-                        <Label check>
-                           <Input type="checkbox" id="checkbox6" /> 5
-                        </Label>
-                     </FormGroup>
-                  </th>
-                  <td>Peater</td>
-                  <td>Partker</td>
-                  <td>peater@example.com</td>
-                  <td><Edit size={18} className="mr-2" /> <Trash2 size={18} color="#FF586B"/></td>
-               </tr>
+              
+           
+             
+              
             </tbody>
          </Table>
          </Fragment>

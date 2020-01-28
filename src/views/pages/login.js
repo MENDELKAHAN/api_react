@@ -1,6 +1,7 @@
 // import external modules
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import axios from 'axios';
 import {
    Row,
    Col,
@@ -11,19 +12,23 @@ import {
    Label,
    Card,   
    CardBody,
-   CardFooter
+   CardFooter,
+   // Alert
+   // UncontrolledAlert
 } from "reactstrap";
 
 
 
+
 class Login extends Component {
-   constructor() {
-      super();
-      // this.handleSubmit = this.handleSubmit.bind(this);
-    }
+   // constructor() {
+   //    super();
+   // }
 
    state = {
-      isChecked: true
+      isChecked: true,
+      email: '',
+      password: ''
    };
 
    handleChecked = e => {
@@ -32,20 +37,34 @@ class Login extends Component {
       }));
    };
 
+
+
   
 
- submitForm(event) {
-   event.preventDefault();
-   const data = new FormData(event.target);
+   onFormSubmit  =  (event) => {
+      event.preventDefault();
+
+      axios.post('http://127.0.0.1:8000/api/auth/login', {
+         email: this.state.email,
+         password: this.state.password
+     })
+     .then(function (response) {
+         console.log(response.data);
+     })
+     .catch(function (error) {
+      if (error.response.status === 401) {
+         alert('email or password incorrect');
+        }
+         console.log(error);
+     });
    
-   fetch('http://127.0.0.1:8000/api/auth/login', {
-     method: 'POST',
-     body: data,
-     headers:{
-        'Accept': 'application/json', 
-        'Content-Type' : 'application/json'
-     }
-   });
+   
+   
+   //   headers:{
+      //   'Accept': 'application/json', 
+      //   'Content-Type' : 'application/json'
+   //   }
+   
  }
 
 
@@ -59,15 +78,27 @@ class Login extends Component {
                   <Card className="gradient-indigo-purple text-center width-400">
                      <CardBody>
                         <h2 className="white py-4">Login</h2>
-                        <Form className="pt-2" onSubmit={this.submitForm}>
+                        <Form className="pt-2" onSubmit={this.onFormSubmit}>
+                     
+                     
+                        {/* <UncontrolledAlert
+               color="danger"
+               // isOpen={this.state.invisible}
+               // toggle={this.onDismiss}
+            >
+               Email or Password incorrect
+            </UncontrolledAlert> */}
+           
                            <FormGroup>
                               <Col md="12">
-                                 <Input
+                              <Input
                                     type="email"
                                     className="form-control"
-                                    name="inputEmail"
-                                    id="inputEmail"
+                                    name="email"
+                                    id="inputemail"
                                     placeholder="Email"
+                                    value={this.state.email}
+                                    onChange={(e) => this.setState({email : e.target.value})}
                                     required
                                  />
                               </Col>
@@ -78,11 +109,18 @@ class Login extends Component {
                                  <Input
                                     type="password"
                                     className="form-control"
-                                    name="inputPass"
+                                    name="password"
                                     id="inputPass"
                                     placeholder="Password"
+                                    value={this.state.password}
+                                    onChange={(e) => this.setState({password : e.target.value})}
                                     required
                                  />
+
+
+
+
+
                               </Col>
                            </FormGroup>
 

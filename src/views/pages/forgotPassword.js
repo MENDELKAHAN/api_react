@@ -1,6 +1,6 @@
 // import external modules
 import React from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { Row, Col, Input, Form, FormGroup, Button, Card, CardBody, CardFooter } from "reactstrap";
 
 const ForgotPassword = props => {
@@ -31,25 +31,17 @@ const ForgotPassword = props => {
                                  <Button color="danger" block>
                                     Submit
                                  </Button>
-                                 <Button color="secondary" block>
-                                    Cancel
-                                 </Button>
+                                 <Button color="success" block >
+                           Login
+                        </Button>
                               </div>
                            </Col>
                         </FormGroup>
                      </Form>
                   </CardBody>
                   <CardFooter>
-                     <div className="float-left white">
-                        <NavLink exact className="text-white" to="/pages/login">
-                           Login
-                        </NavLink>
-                     </div>
-                     <div className="float-right white">
-                        <NavLink exact className="text-white" to="/pages/register">
-                           Register Now
-                        </NavLink>
-                     </div>
+                   
+                    
                   </CardFooter>
                </Card>
             </Col>

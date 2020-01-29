@@ -5,7 +5,7 @@ http.setJwt(getJwt());
 
 export async function login(email, password) {
   const { data: jwt } = await http.post(
-    process.env.REACT_APP_API_AUTH_URL + "/login",
+    process.env.REACT_APP_API_AUTH_URL + "login",
     {
       email,
       password

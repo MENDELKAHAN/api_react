@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import axios from 'axios';
+import authService from '../../services/authService';
 import {
    Row,
    Col,
@@ -21,15 +22,17 @@ import {
 
 
 class Login extends Component {
-   // constructor() {
-   //    super();
-   // }
+   constructor(props) {
+      super(props);
 
-   state = {
-      isChecked: true,
-      email: '',
-      password: ''
-   };
+      this.state = {
+         isChecked: true,
+         email: '',
+         password: ''
+      };
+   }
+
+  
 
    handleChecked = e => {
       this.setState(prevState => ({
@@ -43,20 +46,30 @@ class Login extends Component {
 
    onFormSubmit  =  (event) => {
       event.preventDefault();
+      authService.login(this.state.email,this.state.password);
 
-      axios.post('http://127.0.0.1:8000/api/auth/login', {
-         email: this.state.email,
-         password: this.state.password
-     })
-     .then(function (response) {
-         console.log(response.data);
-     })
-     .catch(function (error) {
-      if (error.response.status === 401) {
-         alert('email or password incorrect');
-        }
-         console.log(error);
-     });
+   //    axios.post('http://127.0.0.1:8000/api/auth/login', {
+   //       // axios.post('/auth/GetToken', {
+   //       email: this.state.email,
+   //       password: this.state.password
+   //   })
+   //   .then(function (response) {
+   //    //   this.auth = response.data;
+   //    //   this.setState({isSignedIn})
+   //    // localStorage.setItem('cool-jwt', response.data );
+
+         
+   //   })
+   //   .catch(function (error) {
+
+   //    if(typeof variable !== 'undefined'){
+   //       if (error.response.status === 401) {
+   //          alert('email or password incorrect');
+   //         }
+   //    }
+      
+   //       console.log(error);
+   //   });
    
    
    

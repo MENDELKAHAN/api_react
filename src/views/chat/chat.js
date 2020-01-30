@@ -15,7 +15,7 @@ class Chat extends Component {
                 <div className="chat-sidebar float-left d-none d-sm-none d-md-block d-lg-block">
                     <PerfectScrollbar>
                         <div className="chat-sidebar-content">
-                            <ChatSearch />
+                            {/* <ChatSearch /> */}
                             <ChatList />
                         </div>
                     </PerfectScrollbar>

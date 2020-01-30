@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 const ChatList = ({ chats, openChat }) => (
     <div className="list-group position-relative" id="users-list">
         <div className="users-list-padding">
+            
             {chats.map(chat => (
                 <Chat
                     key={chat.id}

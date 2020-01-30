@@ -3,6 +3,11 @@ import Joi from "joi-browser";
 import Input from "./input";
 import Select from "./select";
 
+// import {
+//   Input 
+// } from "reactstrap";
+
+
 class Form extends Component {
   state = { data: {}, errors: {} };
 
@@ -64,6 +69,7 @@ class Form extends Component {
         options={options}
         onChange={this.handleChange}
         error={errors[name]}
+        className="form-control"
       />
     );
   }
@@ -78,6 +84,7 @@ class Form extends Component {
         label={label}
         onChange={this.handleChange}
         error={errors[name]}
+        className="form-control"
       />
     );
   }
@@ -89,6 +96,7 @@ class Form extends Component {
         name={name}
         value={data[name]}
         onChange={this.handleChange}
+        className="form-control"
       ></textarea>
     );
   }

@@ -1,7 +1,7 @@
 // import external modules
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import axios from 'axios';
+// import axios from 'axios';
 import authService from '../../services/authService';
 import {
    Row,
@@ -15,23 +15,24 @@ import {
    CardBody,
    CardFooter,
    // Alert
-   // UncontrolledAlert
+   UncontrolledAlert
 } from "reactstrap";
 
 
 
 
 class Login extends Component {
-   constructor(props) {
-      super(props);
+//    constructor(props) {
+//       super(props);
+// }
 
-      this.state = {
-         isChecked: true,
-         email: '',
-         password: ''
-      };
-   }
-
+   state = {
+      isChecked: true,
+      email: '',
+      password: '',
+      show: 0
+   };
+   catch
   
 
    handleChecked = e => {
@@ -46,7 +47,19 @@ class Login extends Component {
 
    onFormSubmit  =  (event) => {
       event.preventDefault();
-      authService.login(this.state.email,this.state.password);
+      authService.login(this.state.email,this.state.password).catch(function  (error) {
+
+         // if(typeof variable !== 'undefined'){
+            // if (error.response.status === 401) {
+            //    this.setState ({show: 1});
+            //    console.log(error.response.status);
+               
+             
+            //   }
+         // }
+         
+            console.log(this);
+        });
 
    //    axios.post('http://127.0.0.1:8000/api/auth/login', {
    //       // axios.post('/auth/GetToken', {
@@ -83,6 +96,7 @@ class Login extends Component {
 
 
 
+
    render() {
       return (
          <div className="container">
@@ -93,14 +107,12 @@ class Login extends Component {
                         <h2 className="white py-4">Login</h2>
                         <Form className="pt-2" onSubmit={this.onFormSubmit}>
                      
-                     
-                        {/* <UncontrolledAlert
-               color="danger"
-               // isOpen={this.state.invisible}
-               // toggle={this.onDismiss}
-            >
-               Email or Password incorrect
-            </UncontrolledAlert> */}
+                    
+                        <UncontrolledAlert
+                           color="danger"
+                           style = {{ display : this.state.show === 1 ? "block" : "none"  }}>
+                           Email or Password incorrect
+                        </UncontrolledAlert> 
            
                            <FormGroup>
                               <Col md="12">

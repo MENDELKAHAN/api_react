@@ -18,7 +18,7 @@ class ChatContent extends Component {
             <div className="media">
                 <span className="chat-app-sidebar-toggle ft-align-justify font-large-1 mr-2 d-none d-block d-sm-block d-md-none"></span>
                 <div className="media-body">
-                <img src={ chatDetails.thumb } width="37" className="rounded-circle mr-1" alt="avatar" />
+                {/* <img src={ chatDetails.thumb } width="37" className="rounded-circle mr-1" alt="avatar" /> */}
                 <span>{ chatDetails.name }</span>
                 <MoreVertical size={18} className="ft-more-vertical float-right mt-1" />
                 </div>

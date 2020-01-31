@@ -23,7 +23,7 @@ class Chat extends Component {
 
                 <ChatContent />
 
-                <ChatMsgSend />
+                <ChatMsgSend /> 
             </div>
          </Fragment>
       );

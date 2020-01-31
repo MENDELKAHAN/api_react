@@ -27,7 +27,7 @@ export const openChat = id => ({
 })
 
 export const chatSearch = (searchTerm) => ({
-    type: 'FILTER_CHAT',
+    type: 'FILTER_CHAT', 
     searchTerm
 })
 

@@ -1,9 +1,11 @@
 import React, {  Fragment } from "react";
 import ContentHeader from "../../components/contentHead/contentHeader";
-
+import { NavLink } from "react-router-dom";
 import { Table, Input, FormGroup, Label } from "reactstrap";
 import { Edit, Trash2 } from 'react-feather';
 import UserNew from './userNew';
+
+
 
 export default class Role extends React.Component {
    render() {

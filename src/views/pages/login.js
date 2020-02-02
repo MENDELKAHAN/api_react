@@ -47,15 +47,19 @@ class Login extends Component {
 
    onFormSubmit  =  (event) => {
       event.preventDefault();
-      authService.login(this.state.email,this.state.password).catch(function  (error) {
+      authService.login(this.state.email,this.state.password)
+      .then (
+         this.setState ({show: 0})
+      )
+      .catch(  (error)  => {
 
          // if(typeof variable !== 'undefined'){
-            // if (error.response.status === 401) {
-            //    this.setState ({show: 1});
-            //    console.log(error.response.status);
+            if (error.response.status === 401) {
+               this.setState ({show: 1});
+               console.log(error.response.status);
                
              
-            //   }
+              }
          // }
          
             console.log(this);
@@ -110,7 +114,8 @@ class Login extends Component {
                     
                         <UncontrolledAlert
                            color="danger"
-                           style = {{ display : this.state.show === 1 ? "block" : "none"  }}>
+                            style = {{ display : this.state.show === 1 ? "block" : "none"  }}
+                           >
                            Email or Password incorrect
                         </UncontrolledAlert> 
            

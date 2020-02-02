@@ -10,9 +10,13 @@ import UserImg from "../../assets/img/portrait/small/avatar-s-1.png";
 // import { AlertOctagon, Trash2 } from "react-feather";
 
 class ChatContent extends Component {
+    constructor(props) {
+        super(props);
+    }
     
     render() {
     let chatDetails = this.props.chatDetails;
+    console.log(this.props, "here")
      return <div>
         <div className="chat-name p-2 bg-white">
             <div className="media">

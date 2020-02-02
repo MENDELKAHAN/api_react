@@ -2,9 +2,15 @@ import axios from 'axios';
 
 // const chatData =   axios.get('http://127.0.0.1:8000/api/v1/chats/').then((response) => {
     
-//    setState (response.data);
+//    this.setState ({chatData: response.data});
 
 //     });
+
+
+// axios.get('http://127.0.0.1:8000/api/v1/chats/')
+//   .then(function(result){ 
+//     YourAction.getAllFlights(result)
+//   });
     
         
      

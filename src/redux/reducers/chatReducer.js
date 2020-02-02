@@ -3,7 +3,9 @@ import {
    HANDLE_SELECT_USER,
    HANDLE_SEND_MESSAGE
 } from "../actions/types/types";
-import { chatUser } from "../../views/chat/chatData";
+// import { chatUser } from "../../views/chat/chatData";
+import { chatUser } from "./chat/chatData";
+
 
 const initState = {
    users: chatUser,

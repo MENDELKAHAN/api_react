@@ -15,7 +15,7 @@ const ChatList = ({ chats, openChat }) => (
                     key={chat.id}
                     {...chat}
                     onClick={() => openChat(chat.id)}
-                    // thumb={chat.thumb}
+                    thumb={chat.thumb}
                     contactName={chat.name}
                     chatExcerpt={chat.message}
                 />

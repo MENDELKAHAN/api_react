@@ -53,16 +53,15 @@ class Login extends Component {
       )
       .catch(  (error)  => {
 
-         // if(typeof variable !== 'undefined'){
+         if(typeof error !== 'undefined'){
+           
             if (error.response.status === 401) {
-               this.setState ({show: 1});
-               console.log(error.response.status);
-               
+               this.setState ({show: 1});              
              
               }
-         // }
+         }
          
-            console.log(this);
+            // console.log(error);
         });
 
    //    axios.post('http://127.0.0.1:8000/api/auth/login', {

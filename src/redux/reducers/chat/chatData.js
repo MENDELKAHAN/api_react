@@ -12,9 +12,7 @@ export const chatData = () => async dispatch => {
       `http://127.0.0.1:8000/api/v1/chats`,
     );
     console.log(responseData, "data")
-    // dispatch(addContactSuccess(responseData));
   } catch (error) {
-    // return dispatch(addContactFailure(error));
   }
 };
 

@@ -4,10 +4,26 @@ import { NavLink } from "react-router-dom";
 import { Table, Input, FormGroup, Label } from "reactstrap";
 import { Edit, Trash2 } from 'react-feather';
 import UserNew from './userNew';
+import axios from 'axios';
 
 
 
-export default class Role extends React.Component {
+export default class User extends React.Component {
+
+
+   state = {
+      users: []
+    }
+   componentDidMount() {
+      axios.get(`http://127.0.0.1:8000/api/v1/users`)
+        .then(res => {
+         console.log(res.data)
+          this.setState({users: res.data});
+        })
+    }
+
+
+
    render() {
       return (
         <Fragment>
@@ -32,6 +48,9 @@ export default class Role extends React.Component {
                </tr>
             </thead>
             <tbody>
+            {this.state.users.map((users) => 
+            
+         
                <tr>
                   <th scope="row">
                      {" "}
@@ -41,7 +60,7 @@ export default class Role extends React.Component {
                         </Label>
                      </FormGroup>
                   </th>
-                  <td>Dev</td>
+                  <td>{users.name}</td>
                   <td>test@test.com</td>
                  <td>
                 
@@ -60,9 +79,9 @@ export default class Role extends React.Component {
                   <td><Edit size={18} className="mr-2" /> <Trash2 size={18} color="#FF586B"/></td>
                </tr>
               
-           
+            
              
-              
+              )}
             </tbody>
          </Table>
          </Fragment>

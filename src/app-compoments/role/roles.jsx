@@ -5,8 +5,13 @@ import { Table, Input, FormGroup, Label } from "reactstrap";
 import { Edit, Trash2 } from 'react-feather';
 import RoleNew from './roleNew';
 import axiosService from '../../services/axios';
-export default class Role extends React.Component {
-state={roles:[]}
+
+
+class Role extends React.Component {
+
+
+
+   state={roles:[]}
    componentDidMount() {
      
       axiosService.get(`roles`)
@@ -91,3 +96,6 @@ state={roles:[]}
       );
    }
 }
+
+
+export default Role;

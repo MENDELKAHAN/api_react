@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter,Form, FormGroup, Label, Input } from 'reactstrap';
-import axiosService from '../../services/axios';
+// import axiosService from '../../services/axios';
 
 
 class RoleNew extends React.Component {
@@ -13,7 +13,8 @@ class RoleNew extends React.Component {
 
   onFormSubmit  =  (e) => {
     e.preventDefault();
-    this.props.onSubmit(this.state.name, this.state.slug);
+    // this.props.onSubmit(this.state.name, this.state.slug);
+    console.log(this.state.name);
   }
 
   toggle = () => {

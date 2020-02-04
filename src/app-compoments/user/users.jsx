@@ -1,10 +1,10 @@
 import React, {  Fragment } from "react";
 import ContentHeader from "../../components/contentHead/contentHeader";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 import { Table, Input, FormGroup, Label } from "reactstrap";
 import { Edit, Trash2 } from 'react-feather';
 import UserNew from './userNew';
-import axios from 'axios';
+import axiosService from '../../services/axios';
 
 
 
@@ -14,12 +14,22 @@ export default class User extends React.Component {
    state = {
       users: []
     }
+
+    
+
    componentDidMount() {
-      axios.get(`http://127.0.0.1:8000/api/v1/users`)
+     
+      axiosService.get(`users`)
         .then(res => {
-         console.log(res.data)
-          this.setState({users: res.data});
+         
+         console.log(res.data.data)
+          this.setState({users: res.data.data});
         })
+        .catch(error => {
+         console.log(error);
+        }
+         )
+        
     }
 
 
@@ -55,13 +65,13 @@ export default class User extends React.Component {
                   <th scope="row">
                      {" "}
                      <FormGroup check>
-                        <Label check>
-                           <Input type="checkbox" id="checkbox2" /> 1
+                        <Label check >
+                           <Input type="checkbox" id="checkbox2" /> {users.id}
                         </Label>
                      </FormGroup>
                   </th>
                   <td>{users.name}</td>
-                  <td>test@test.com</td>
+                  <td>{users.email}</td>
                  <td>
                 
                                   
@@ -69,7 +79,7 @@ export default class User extends React.Component {
                         <option value="none" defaultValue="" disabled="">
                             None
                         </option>
-                        <option value="1">Super Admin</option>
+                        <option value="1" >Super Admin</option>
                         <option value="2">Admin</option>
                         <option value="3">Developer</option>
                     

@@ -1,4 +1,4 @@
-import axios from 'axios';
+// import axios from 'axios';
 
 
 // var chatData = [];
@@ -8,29 +8,17 @@ import axios from 'axios';
 
 //     });
 
-<<<<<<< HEAD
-export const chatData = () => async dispatch => {
-  try {
-    const responseData = await axios.get(
-      `http://127.0.0.1:8000/api/v1/chats`,
-    );
-    console.log(responseData, "data")
-  } catch (error) {
-  }
-};
-=======
+
 // export const chatData = () => async dispatch => {
 //   try {
 //     const responseData = await axios.get(
 //       `http://127.0.0.1:8000/api/v1/chats`,
 //     );
 //     console.log(responseData, "data")
-//     // dispatch(addContactSuccess(responseData));
 //   } catch (error) {
-//     // return dispatch(addContactFailure(error));
 //   }
 // };
->>>>>>> 7522adcf74955dc54ea077128bce448acd7c9fd2
+
 
 
 

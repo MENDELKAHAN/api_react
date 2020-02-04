@@ -60,39 +60,10 @@ class Login extends Component {
              
               }
          }
-         
-            // console.log(error);
+  
         });
 
-   //    axios.post('http://127.0.0.1:8000/api/auth/login', {
-   //       // axios.post('/auth/GetToken', {
-   //       email: this.state.email,
-   //       password: this.state.password
-   //   })
-   //   .then(function (response) {
-   //    //   this.auth = response.data;
-   //    //   this.setState({isSignedIn})
-   //    // localStorage.setItem('cool-jwt', response.data );
-
-         
-   //   })
-   //   .catch(function (error) {
-
-   //    if(typeof variable !== 'undefined'){
-   //       if (error.response.status === 401) {
-   //          alert('email or password incorrect');
-   //         }
-   //    }
-      
-   //       console.log(error);
-   //   });
-   
-   
-   
-   //   headers:{
-      //   'Accept': 'application/json', 
-      //   'Content-Type' : 'application/json'
-   //   }
+  
    
  }
 

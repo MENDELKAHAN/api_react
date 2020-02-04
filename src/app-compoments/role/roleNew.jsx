@@ -1,13 +1,20 @@
 import React from "react";
 import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter,Form, FormGroup, Label, Input } from 'reactstrap';
-
+import axiosService from '../../services/axios';
 
 
 class RoleNew extends React.Component {
 
   state = {
-    composeModal: false
+    composeModal: false,
+    name: '',
+    slug: '',
   };
+
+  onFormSubmit  =  (e) => {
+    e.preventDefault();
+    this.props.onSubmit(this.state.name, this.state.slug);
+  }
 
   toggle = () => {
     this.setState({
@@ -26,14 +33,23 @@ class RoleNew extends React.Component {
       <Modal isOpen={this.state.composeModal} toggle={this.toggle} size="lg">
         <ModalHeader toggle={this.toggle}>Create New Role</ModalHeader>
         <ModalBody>
-          <Form>
+          <Form  onSubmit={this.onFormSubmit}>
             <div className="form-body">
                 <Row>
                   
                   <Col sm="12">
                       <FormGroup>
                         <Label for="name">Name</Label>
-                        <Input type="text" id="name" name="name" />
+                        <Input
+                                    type="name"
+                                    className="form-control"
+                                    name="name"
+                                    id="inputname"
+                                    placeholder="Name"
+                                    value={this.state.name}
+                                    onChange={(e) => this.setState({name : e.target.value})}
+                                    required
+                                 />
                       </FormGroup>
                   </Col>
                   
@@ -44,18 +60,30 @@ class RoleNew extends React.Component {
                   <Col sm="12">
                       <FormGroup>
                         <Label for="name">Slug</Label>
-                        <Input type="text" id="slug" name="slug" />
+                        <Input
+                                    type="text"
+                                    className="form-control"
+                                    name="slug"
+                                    id="inputslug"
+                                    placeholder="Slug"
+                                    value={this.state.slug}
+                                    onChange={(e) => this.setState({slug : e.target.value})}
+                                    required
+                                 />
                       </FormGroup>
                   </Col>
                  
                 </Row>
             </div>
-          </Form>
-        </ModalBody>
-        <ModalFooter>
-          <Button color="primary" onClick={this.toggle}>Create</Button>{' '}
+            <ModalFooter>
+          <Button color="primary" type="submit">Create</Button>{' '}
+         
           <Button color="secondary" onClick={this.toggle}>Cancel</Button>
         </ModalFooter>
+            </Form>
+        </ModalBody>
+       
+        
       </Modal>
     </div>
     )

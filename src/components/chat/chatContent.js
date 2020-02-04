@@ -10,10 +10,10 @@ import UserImg from "../../assets/img/portrait/small/avatar-s-1.png";
 // import { AlertOctagon, Trash2 } from "react-feather";
 
 class ChatContent extends Component {
-    constructor(props) {
-        super(props);
+    // constructor(props) {
+    //     super(props);
       
-    }
+    // }
     
     render() {
     let chatDetails = this.props.chatDetails;

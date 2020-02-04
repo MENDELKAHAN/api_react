@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import ChatList from "../../containers/chat/chatList";
-import ChatSearch from "../../containers/chat/chatSearch";
+// import ChatSearch from "../../containers/chat/chatSearch";
 import ChatContent from "../../containers/chat/chatContent";
 import ChatMsgSend from "../../containers/chat/chatMsgSend";
 import PerfectScrollbar from "react-perfect-scrollbar";

@@ -1,40 +1,30 @@
 import React, {  Fragment } from "react";
 import ContentHeader from "../../components/contentHead/contentHeader";
-
 import { Table, Input, FormGroup, Label } from "reactstrap";
 import { Edit, Trash2 } from 'react-feather';
 import RoleNew from './roleNew';
 import axiosService from '../../services/axios';
 
-
 class Role extends React.Component {
-
-
-
    state={roles:[]}
    componentDidMount() {
-     
       axiosService.get(`roles`)
         .then(res => {
-         
-         console.log(res.data.data)
           this.setState({roles: res.data.data});
         })
         .catch(error => {
-         console.log(error);
+         // console.log(error);
         }
          )
-        
     }
 
     processNewRoleForm = async (name, slug ) =>  {
       const response = await axiosService.post('roles',{
-      params:{name: name, slug: slug},
-     
-      
-  });
+      name,
+      slug},      
+  );
 
-//   this.setState({data: response.data.results});
+  this.setState({data: response.data.results});
 
 }
 
@@ -46,7 +36,7 @@ class Role extends React.Component {
       return (
         <Fragment>
         <ContentHeader>Roles </ContentHeader>
-        <RoleNew/>
+        <RoleNew onSubmit={this.processNewRoleForm}/>
 
         <Table responsive>
             <thead>

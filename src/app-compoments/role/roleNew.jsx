@@ -13,8 +13,8 @@ class RoleNew extends React.Component {
 
   onFormSubmit  =  (e) => {
     e.preventDefault();
-    // this.props.onSubmit(this.state.name, this.state.slug);
-    console.log(this.state.name);
+    this.props.onSubmit(this.state.name, this.state.slug);
+
   }
 
   toggle = () => {

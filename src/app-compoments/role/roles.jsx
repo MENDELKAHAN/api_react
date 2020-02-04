@@ -6,11 +6,15 @@ import RoleNew from './roleNew';
 import axiosService from '../../services/axios';
 
 class Role extends React.Component {
-   state={roles:[]}
-   componentDidMount() {
+   state={roles:[], 
+      formErrors: [],
+      showForm : false}
+  
+      componentDidMount() {
       axiosService.get(`roles`)
         .then(res => {
           this.setState({roles: res.data.data});
+          
         })
         .catch(error => {
          // console.log(error);
@@ -18,25 +22,32 @@ class Role extends React.Component {
          )
     }
 
-    processNewRoleForm = async (name, slug ) =>  {
-      const response = await axiosService.post('roles',{
-      name,
-      slug},      
-  );
+   processNewRoleForm = async (name, slug ) =>  {
+      const response = await axiosService.post('roles',
+      {name, slug}
+      )
+      .then(res => {
+         this.setState({
+            roles: this.state.roles.concat(res.data.data)
+          })
+          this.setState({formErrors:[]})
+      })
+      
+      .catch(error =>{
+         this.setState({formErrors: error.response.data.errors})
+         this.setState({ showForm : true})
 
-  this.setState({data: response.data.results});
-
-}
-
-
- 
+        
+      })
+   }
 
 
    render() {
       return (
         <Fragment>
         <ContentHeader>Roles </ContentHeader>
-        <RoleNew onSubmit={this.processNewRoleForm}/>
+       
+        <RoleNew onSubmit={this.processNewRoleForm} formErrors = {this.state.formErrors}  showForm = {this.state.showForm}/>
 
         <Table responsive>
             <thead>
@@ -76,10 +87,7 @@ class Role extends React.Component {
                  
                </tr>
                 )}
-              
-           
-             
-              
+            
             </tbody>
          </Table>
          </Fragment>

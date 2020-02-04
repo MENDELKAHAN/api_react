@@ -5,17 +5,19 @@ import { Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter,Form, Form
 
 class RoleNew extends React.Component {
 
-  state = {
-    composeModal: false,
-    name: '',
-    slug: '',
-  };
-
-  onFormSubmit  =  (e) => {
-    e.preventDefault();
-    this.props.onSubmit(this.state.name, this.state.slug);
-
+  constructor(props){
+    super(props);
+   
+   this.state = {
+      composeModal: this.props.showForm,
+      name: '',
+      slug: '',
+      errors: this.props.formErrors
+    };
+    
   }
+
+  
 
   toggle = () => {
     this.setState({
@@ -23,6 +25,14 @@ class RoleNew extends React.Component {
     });
   }
 
+
+
+  onFormSubmit  = (e) => {
+    e.preventDefault();
+    this.props.onSubmit(this.state.name, this.state.slug)
+  }
+      
+ 
   render() {
     return (
       <div className="form-group form-group-compose text-center">
@@ -41,15 +51,16 @@ class RoleNew extends React.Component {
                   <Col sm="12">
                       <FormGroup>
                         <Label for="name">Name</Label>
+                        
                         <Input
-                                    type="name"
-                                    className="form-control"
-                                    name="name"
-                                    id="inputname"
-                                    placeholder="Name"
-                                    value={this.state.name}
-                                    onChange={(e) => this.setState({name : e.target.value})}
-                                    required
+                            type="name"
+                            className="form-control"
+                            name="name"
+                            id="inputname"
+                            placeholder="Name"
+                            value={this.state.name}
+                            onChange={(e) => this.setState({name : e.target.value})}
+                            // required
                                  />
                       </FormGroup>
                   </Col>
@@ -69,7 +80,7 @@ class RoleNew extends React.Component {
                                     placeholder="Slug"
                                     value={this.state.slug}
                                     onChange={(e) => this.setState({slug : e.target.value})}
-                                    required
+                                    // required
                                  />
                       </FormGroup>
                   </Col>

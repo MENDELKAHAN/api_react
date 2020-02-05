@@ -1,6 +1,7 @@
 // import external modules
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import authService from '../../../services/authService';
 import {
    Form,
    Media,
@@ -53,6 +54,14 @@ class ThemeNavbar extends Component {
          isOpen: !this.state.isOpen
       });
    }
+
+
+   logout  =  (event) => {
+      event.preventDefault();
+      authService.logout()
+   
+   
+ }
 
    render() {
       return (
@@ -132,11 +141,7 @@ class ThemeNavbar extends Component {
                                        </span>
                                     </Media>
                                  </Media>
-                               
-                                    
-                                
-                               
-                                   
+   
                                  <Media className="px-3 pt-2 pb-2 media  border-bottom-grey border-bottom-lighten-3">
                                     <Media left middle href="#" className="mr-2">
                                        <span className="bg-danger rounded-circle width-35 height-35 d-block">
@@ -201,7 +206,7 @@ class ThemeNavbar extends Component {
                                     <Lock size={16} className="mr-1" /> Lock Screen
                                  </DropdownItem>
                               </Link>
-                              <Link to="/pages/login" className="p-0">
+                              <Link to="/login" className="p-0" onClick={this.logout}>
                                  <DropdownItem>
                                     <LogOut size={16} className="mr-1" /> Logout
                                  </DropdownItem>

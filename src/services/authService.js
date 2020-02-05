@@ -1,6 +1,7 @@
 import http from "./httpService";
 import jwtDecode from "jwt-decode";
 
+
 http.setJwt(getJwt());
 
 export async function login(email, password) {
@@ -12,6 +13,7 @@ export async function login(email, password) {
     }
   );
   localStorage.setItem("token", jwt);
+
 }
 
 export async function refresh() {
@@ -24,6 +26,7 @@ export async function refresh() {
 
 export function logout() {
   localStorage.removeItem("token");
+  window.location = "/login";
 }
 
 export function getCurrentUser() {

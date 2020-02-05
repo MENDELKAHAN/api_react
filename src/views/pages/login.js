@@ -22,9 +22,9 @@ import {
 
 
 class Login extends Component {
-//    constructor(props) {
-//       super(props);
-// }
+   constructor(props) {
+      super(props);
+}
 
    state = {
       isChecked: true,
@@ -49,7 +49,8 @@ class Login extends Component {
       event.preventDefault();
       authService.login(this.state.email,this.state.password)
       .then (
-         this.setState ({show: 0})
+
+        this.props.history.push("/")
       )
       .catch(  (error)  => {
 

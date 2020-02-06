@@ -1,7 +1,7 @@
 import React, {  Fragment } from "react";
 import ContentHeader from "../../components/contentHead/contentHeader";
-import { Table, Input, FormGroup, Label } from "reactstrap";
-import { Edit, Trash2 } from 'react-feather';
+import { Table, Input, FormGroup, Label, Button } from "reactstrap";
+import { Edit, Trash2, Link } from 'react-feather';
 import RoleNew from './roleNew';
 import axiosService from '../../services/axios';
 
@@ -40,6 +40,27 @@ class Role extends React.Component {
         
       })
    }
+
+   remove = (rowId) => {
+      var states = [...this.state.roles]; 
+   
+      const filtered = states.filter(i => {
+         i.id == rowId
+      
+      });
+         console.log(filtered)
+      }
+         
+        
+   
+      // this.setState({roles: array})
+      
+      
+   
+
+   
+
+
 
 
    render() {
@@ -83,7 +104,7 @@ class Role extends React.Component {
                   <td>{roles.name}</td>
                   <td>{roles.slug}</td>
                  
-                  <td><Edit size={18} className="mr-2" /> <Trash2 size={18} color="#FF586B"/></td>
+                  <td><Edit size={18} className="mr-2" /> <a href="#" onClick={() => this.remove(roles.id)}><Trash2 size={18} color="#FF586B"/></a></td>
                  
                </tr>
                 )}
